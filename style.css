@@ -1,0 +1,36 @@
+body{
+    background-color: black;
+}
+h1, h3{
+    text-align: center;
+}
+.card{
+    width: 70%;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 50px;
+    background-color: rgb(212, 47, 47);
+    color: white;
+}
+
+.hero-box{
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    border-radius: 50px;
+}
+.hints-box{
+    width: 300px;
+    height: 300px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 50px;
+    padding: 30px;
+}
+.timer{
+    border-radius: 25%;
+    border-style: solid;
+    border-color: black;
+    padding: 20px;
+    width: 25%;
+}
