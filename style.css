@@ -34,3 +34,26 @@ h1, h3{
     padding: 20px;
     width: 25%;
 }
+
+.container-button{
+    
+    border-style: solid;
+    border-color: black;
+}
+
+button{
+    margin-right: 10%;
+    margin-left:11%;
+    margin-top: 10%;
+    margin-bottom: 4%;
+    border-radius: 10px;
+    color:purple;
+    font-weight: bold;
+    background-color: yellow;
+}
+
+@media only screen and (max-width: 850) {
+    body{
+        background-color:white;
+    }
+  }
