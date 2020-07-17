@@ -59,38 +59,51 @@ const charArr = [
     "Black Canary",
     "Black Cat",
     "Black Manta",
-    "Black Panther"]
+    "Black Panther"
+]
 let queryTerm =""
 let random1 = ""
 let random2 = ""
 let random3 = ""
 
-    queryTerm = charArr[Math.floor(Math.random() * charArr.length)]; 
-    random1 = charArr[Math.floor(Math.random() * charArr.length)];
-    if (random1 === queryTerm){
-        do {random1 = charArr[Math.floor(Math.random() * charArr.length)];
-        }
-        while (random1 === queryTerm);
-    } 
-    random2 = charArr[Math.floor(Math.random() * charArr.length)];
-    if  (random2 === queryTerm || random2 === random1){
-        do{random2 = charArr[Math.floor(Math.random() * charArr.length)];
-        }
-        while (random2 === queryTerm || random2 === random1);
-    }    
-    random3 = charArr[Math.floor(Math.random() * charArr.length)];
-    if (random3 === queryTerm || random3 === random1 || random3 === random2){
-        do {random3 = charArr[Math.floor(Math.random() * charArr.length)];
-        }
-        while (random3 === queryTerm || random3 === random1 || random3 === random2);
+queryTerm = charArr[Math.floor(Math.random() * charArr.length)]; 
+random1 = charArr[Math.floor(Math.random() * charArr.length)];
+if (random1 === queryTerm){
+    do {random1 = charArr[Math.floor(Math.random() * charArr.length)];
     }
-
+    while (random1 === queryTerm);
+} 
+random2 = charArr[Math.floor(Math.random() * charArr.length)];
+if  (random2 === queryTerm || random2 === random1){
+    do{random2 = charArr[Math.floor(Math.random() * charArr.length)];
+    }
+    while (random2 === queryTerm || random2 === random1);
+}    
+random3 = charArr[Math.floor(Math.random() * charArr.length)];
+if (random3 === queryTerm || random3 === random1 || random3 === random2){
+    do {random3 = charArr[Math.floor(Math.random() * charArr.length)];
+    }
+    while (random3 === queryTerm || random3 === random1 || random3 === random2);
+}
        
      console.log(queryTerm);
      console.log(random1);
      console.log(random2);
      console.log(random3);
 
+     const buttonArr = _.shuffle([queryTerm, random1, random2, random3]);
+     console.log(buttonArr);
+
+     for (let i = 0; i < buttonArr.length; i++){
+         const buttonText = buttonArr[i];
+         console.log(buttonText);
+         const answerButton = document.createElement("li");
+         console.log(answerButton);
+         answerButton.innerHTML = buttonText;
+         const buttonDiv = document.getElementById("buttons");
+         buttonDiv.append(answerButton);
+
+     }
 
 
 const APIKey = "134975468255420";
