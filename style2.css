@@ -1,0 +1,36 @@
+body{
+    background-color: black;
+}
+h1{
+    text-align: center;
+}
+.card{
+    width: 70%;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 50px;
+    background-color: rgb(212, 47, 47);
+    color: white;
+}
+
+.video-box iframe{
+
+    align-items: center;
+    width: 75%;
+    height: 300px;
+    background-color: black;
+    border-radius: 50px;
+}
+
+.high-scores{
+    border-radius: 25%;
+    border-style: solid;
+    border-color: black;
+    padding: 20px;
+    width: 50%;
+}
+button{
+    background-color: yellow;
+    border-radius: 10px;
+
+}
