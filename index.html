@@ -3,13 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Marvelous Quiz</title>
-</head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<div id="image-holder"></div>
+    
 
+    <title>Document</title>
+</head>
 <body>
-<script src="script.js"></script>
+    <div class="conatainer">
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h1>MARVEL</h1>
+                        <button id="start">Start</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="hero-box"><img></div>
+                    </div>
+                    <div class="col hints-box">
+                       <h1>Hints:</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h3 id = "qNumber">HERO: **/**</h3>
+                    </div>
+                </div>
+               <div class="row">
+                   
+                   <div class="col-md-6 col-xs-10 offset-sm-1  offset-md-3">
+                      
+                  <div class="container-button">
+                      <div class="row">
+                        
+                      </div>
+                      <div class="row">
+                          <div class="col">
+                              <button id = 'answer'> the target button</button>
+                          </div>
+                          <div  class="col">
+                              <button> dumby button</button>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col">
+                              <button> dumny button</button>
+                          </div>
+                          <div class="col">
+                              <button> dumby button</button>
+                          </div>
+                      </div>
+                  </div>
+
+                   </div>
+               </div>
+               <div class="row">
+                   <div class="col-10">
+                       <div class="timer"><p>Timer: </p></div>
+                        
+                   </div>
+                   <div class="col">
+                       <button id = 'final'>FINAL/CONTINUR</button>
+                   </div>
+               </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+
 </body>
 </html>
