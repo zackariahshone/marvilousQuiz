@@ -25,6 +25,11 @@ let queryTerm =""
 let random1 = ""
 let random2 = ""
 let random3 = ""
+let userScore =localStorage.getItem("score");
+
+if (isNaN(userScore)){
+    userScore = 0;
+}
 
 queryTerm = charArr[Math.floor(Math.random() * charArr.length)]; 
 random1 = charArr[Math.floor(Math.random() * charArr.length)];
@@ -85,25 +90,20 @@ $.ajax({
 
 });  
 
-const answerButtons = document.getElementById("buttons");
-console.log(answerButtons);
+console.log(userScore);
 $(".btn").on("click", function(){
     const answer = (this).innerHTML;
     console.log(answer);
     console.log(queryTerm);
-
     if (answer === queryTerm){
         window.open("win.html");
+        // localStorage.getItem("score");
+        userScore = parseInt(userScore) + 5;
+        console.log(userScore);
+        localStorage.setItem("score", userScore);
     } else {
         window.open("lose.html");
     }
 })
-// answerButtons.addEventListener("click", function(event){
-//     event.preventDefault();
 
-//     const answer = event.target;
-    
-//     console.log(queryTerm);
-
-//     console.log(answer);
 
