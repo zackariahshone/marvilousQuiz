@@ -1,5 +1,5 @@
 const charArr = [
-    "A-Bomb", "Abe Sapien", "Abin Sur","Abomination",
+    "A-Bomb", "Abe Sapien", "Abin Sur", "Abomination",
     "Abraxas", "Absorbing Man", "Adam Monroe", "Adam Strange",
     "Agent 13", "Agent Bob", "Agent Zero", "Air-Walker", "Ajax",
     "Alan Scott", "Alex Mercer", "Alex Woolsly", "Alfred Pennyworth",
@@ -28,11 +28,13 @@ let queryTerm =""
 let random1 = ""
 let random2 = ""
 let random3 = ""
-let userScore =localStorage.getItem("score");
-
-if (isNaN(userScore)){
+let userScore = localStorage.getItem("score");
+// console.log(userScore);
+if ((userScore === null)){
     userScore = 0;
 }
+// console.log(userScore);
+localStorage.setItem("score", userScore);
 
 queryTerm = charArr[Math.floor(Math.random() * charArr.length)]; 
 random1 = charArr[Math.floor(Math.random() * charArr.length)];
