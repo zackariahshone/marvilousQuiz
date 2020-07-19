@@ -59,6 +59,7 @@ if (random3 === queryTerm || random3 === random1 || random3 === random2){
          console.log(buttonText);
          const answerButton = document.createElement("li");
          console.log(answerButton);
+         answerButton.className = ("btn");
          answerButton.innerHTML = buttonText;
          const buttonDiv = document.getElementById("buttons");
          buttonDiv.append(answerButton);
@@ -83,3 +84,26 @@ $.ajax({
     $('#image-holder').prepend(charImg);
 
 });  
+
+const answerButtons = document.getElementById("buttons");
+console.log(answerButtons);
+$(".btn").on("click", function(){
+    const answer = (this).innerHTML;
+    console.log(answer);
+    console.log(queryTerm);
+
+    if (answer === queryTerm){
+        window.open("win.html");
+    } else {
+        window.open("lose.html");
+    }
+})
+// answerButtons.addEventListener("click", function(event){
+//     event.preventDefault();
+
+//     const answer = event.target;
+    
+//     console.log(queryTerm);
+
+//     console.log(answer);
+
