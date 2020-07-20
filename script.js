@@ -1,34 +1,46 @@
 
+
+
 $(document).ready(function () {
-   $('#final').hide();
-   let x;
+    $('button').hide();
+    $('#start').show();
+    $('#final').hide();
+   
+   let x=0;
    let h=0;
 
+    let theTime = '';
+   ////////////////////////////////////////// 
    function timer(){
-//        x = 60;
-//    let theTime = setInterval(() => {
-//        $('.timer').text('Timer: ' + x);
-
+       x = 60; 
+       theTime = setInterval(() => {
         
-//         if( x % 10 === 0 ){
-//            // $('.hints-box').prepend("api hints");
-//         }
-//         if(x === 0){
-//             clearInterval(theTime);
-//         }
-//         x-1;
-//     }, 1000);
+       $('.timer').text('Timer: ' + x);
+       // console.log("the time" + x);
+        
+        if( x % 10 === 0 ){
+           // $('.hints-box').prepend("api hints");
+        }
+        if(x === 0){
+            
+            clearInterval(theTime);
+            myTimer = setInterval(theTime, 1000);
+        }
+        x--;
+    }, 1000);
    }
+   ///////////////////////////////////////////////////
+   function reset(timer){
+       clearInterval(timer);
+   }
+  //////////////////////////////////////////////////////
+   
 
-  
-
-
-
-function charGen(){
-    const randChar = Math.floor(Math.random() * 61-1)
-    timer();
-    const queryTerm = charArr[randChar];
-    console.log(randChar);
+const randChar = Math.floor(Math.random() * 61-1)
+let hints = 0;
+function charGen(charIndex){
+    const queryTerm = charArr[charIndex];
+    console.log('Char Index: ' +charIndex);
     console.log(queryTerm);
     const APIKey = "134975468255420";
     const queryURL = "https://www.superheroapi.com/api.php/" + APIKey + "/search/" + queryTerm + "/image"
@@ -40,7 +52,7 @@ function charGen(){
         
         success: function (response) {
             console.log(response);
-           //.hero-box
+            $('.hints-box').empty();
            const hint = [
                "Alias: " + response.results[0].biography.aliases,
                "Alignment: " + response.results[0].biography.alignment,
@@ -49,6 +61,10 @@ function charGen(){
                "Publisher: " + response.results[0].biography.publisher
                //response.results[0].biography.aliases
             ]
+
+            for(let i = 0; i < hint.length; i++){
+                console.log('Hints: ' + hint[i]);
+            }
             
             const randImg = $('img');
             $('.hero-box').append(randImg);
@@ -57,35 +73,65 @@ function charGen(){
            
             const hero = randImg.attr('src', imgUrl );
             
-            const hints = setInterval(() => {
-                // $(".hints-box").append("<p>"+ hint[h] +"</p>"); 
-                // h+1;
-                // if(h>5){
-                //     h=0;
-                //     clearInterval(hints);
-                // }
+            hints = setInterval(() => {
+                
+                $(".hints-box").append("<p>"+ hint[h] +"</p>"); 
+                h++;
+                console.log('Hint Number ' + h);
+                if(h === 5){
+                    h=0;
+                    clearInterval(hints);
+                }
             }, 1000*10);
-            
         }
     });
 }
-    
+    //fill buttons
+    function fillBtn(){
+
+        for(let i = 1; i < 4; i++){
+            $('#' + i).text(charArr[Math.floor(Math.random() * 61-1)]);
+            console.log("Fill button " + charArr[Math.floor(Math.random() * 61-1)]);
+        }
+    }
+
+    //start the game   
     $('#start').click(function(){
+      
+        timer();
+        $('.btnAns').show();
+        fillBtn();
+
         $("#qNumber").text("HERO: 1/5");
-        charGen();
+        charGen(Math.floor(Math.random() * 61-1));
         $('#start').hide();
+
     });
+    //set the number of question being displayed and switch char
+    //
     let questionNum = 1;
     $("#answer").click(function(){
-        charGen();
+        $('.hints-box').empty();
+        reset(theTime);
+        reset(hints);
+        timer();
+        fillBtn();
+        charGen(Math.floor(Math.random() * 61-1));
         questionNum++;
         $("#qNumber").text('HERO: ' + questionNum + "/5");
         if(questionNum > 5){
             $('#final').show();
-
         }
-        
+    });
+    
+    $('#clear').click(function(){
+        $('.hints-box').empty();
     })
     
 });
+
+
+
+
+
 
