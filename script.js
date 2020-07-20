@@ -75,16 +75,17 @@ function charGen(){
         $('#start').hide();
     });
     let questionNum = 1;
-    $("#answer").click(function(){
-        charGen();
-        questionNum++;
-        $("#qNumber").text('HERO: ' + questionNum + "/5");
-        if(questionNum > 5){
-            $('#final').show();
+    // $("#answer").click(function(){
 
-        }
+    //     charGen();
+    //     questionNum++;
+    //     $("#qNumber").text('HERO: ' + questionNum + "/5");
+    //     if(questionNum > 5){
+    //         $('#final').show();
+
+    //     }
         
-    })
+    // })
     
 });
 
