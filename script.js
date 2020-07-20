@@ -35,6 +35,8 @@ if ((userScore === null)){
 }
 // console.log(userScore);
 localStorage.setItem("score", userScore);
+const scoreHolder = document.getElementById("score");
+
 
 queryTerm = charArr[Math.floor(Math.random() * charArr.length)]; 
 random1 = charArr[Math.floor(Math.random() * charArr.length)];

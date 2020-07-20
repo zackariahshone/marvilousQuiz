@@ -1,1 +1,6 @@
-style.css
+li:hover{
+    background:lightgrey;
+}
+li{
+    cursor: pointer;
+            }
