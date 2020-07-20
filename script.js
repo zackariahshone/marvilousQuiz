@@ -1,6 +1,4 @@
 
-
-
 $(document).ready(function () {
     $('button').hide();
     $('#start').show();
@@ -129,6 +127,7 @@ function charGen(charIndex){
     })
     
 });
+
 
 
 
