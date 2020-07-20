@@ -3,7 +3,7 @@ $(document).ready(function () {
 });
 
 
-$("#testBtn1,#testBtn2,#testBtn3").on("click", incorrect )
+$("#0,#1,#2").on("click", incorrect )
 
       // Storing our giphy API URL for a random image
         

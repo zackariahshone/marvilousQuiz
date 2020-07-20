@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.10.2/underscore-min.js"></script>
     <link rel="stylesheet" href="style.css">
-    
-
-    <title>Document</title>
+    <title>Who Dis? Comics Edition</title>
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.10.2/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div id="image-holder"></div>
+
+
+<div>
+    <p><span id="score"></span></p>
+</div>
+
 <body>
     <div class="conatainer">
 
@@ -34,50 +44,57 @@
                             <h1>Hints:</h1>
 
                         </div>
+                    <div class="col">
+                        <h1>Hints:</h1>
+                        <div class="hints-box">
+
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h3 id = "qNumber">HERO: **/**</h3>
+                        <h3 id="qNumber">HERO: **/**</h3>
                     </div>
                 </div>
-               <div class="row">
-                   
-                   <div class="col-md-6 col-xs-10 offset-sm-1  offset-md-3">
-                      
-                  <div class="container-button">
-                      <div class="row">
-                        
-                      </div>
-                      <div class="row">
-                          <div class="col">
-                              <button id = 'answer'> the target button</button>
-                          </div>
-                          <div  class="col">
-                              <button id="testBtn1"> test </button>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col">
-                              <button id="testBtn2"> dumny button</button>
-                          </div>
-                          <div  class="col">
-                              <button id="testBtn3"> dumby button</button>
-                          </div>
-                      </div>
-                  </div>
+                <div class="row">
 
-                   </div>
-               </div>
-               <div class="row">
-                   <div class="col-10">
-                       <div class="timer"><p>Timer: </p></div>
-                        
-                   </div>
-                   <div class="col">
-                       <button id = 'final'>FINAL/CONTINUR</button>
-                   </div>
-               </div>
+                    <div class="col-md-6 col-xs-10 offset-sm-1  offset-md-3">
+
+                        <div class="container-button">
+                            <div class="row">
+
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button class='btnAns' id='answer'> the target button</button>
+                                </div>
+                                <div class="col">
+                                    <button class='btnAns' id='1'> clear </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button class='btnAns' id='2'> dumny button</button>
+                                </div>
+                                <div class="col">
+                                    <button class='btnAns' id='3'> dumby button</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10">
+                        <div class="timer">
+                            <p>Timer: </p>
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <button id='final'>FINAL/CONTINUR</button>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -89,5 +106,9 @@
     <script src="gif.js"></script>
 
 
+
+
+
 </body>
+
 </html>
