@@ -35,10 +35,7 @@ $(document).ready(function () {
 
 const randChar = Math.floor(Math.random() * 61-1)
 let hints = 0;
-
 function charGen(charIndex){
-    
-    
     const queryTerm = charArr[charIndex];
     console.log('Char Index: ' +charIndex);
     console.log(queryTerm);
@@ -78,17 +75,14 @@ function charGen(charIndex){
                 $(".hints-box").append("<p>"+ hint[h] +"</p>"); 
                 h++;
                 console.log('Hint Number ' + h);
-                if(h>5){
+                if(h === 5){
                     h=0;
-                    
                     clearInterval(hints);
                 }
             }, 1000*10);
-            
         }
     });
 }
-
     //fill buttons
     function fillBtn(){
 
@@ -116,6 +110,7 @@ function charGen(charIndex){
     $("#answer").click(function(){
         $('.hints-box').empty();
         reset(theTime);
+        reset(hints);
         timer();
         fillBtn();
         charGen(Math.floor(Math.random() * 61-1));
@@ -124,8 +119,8 @@ function charGen(charIndex){
         if(questionNum > 5){
             $('#final').show();
         }
-        
-    })
+    });
+    
     $('#clear').click(function(){
         $('.hints-box').empty();
     })
