@@ -50,13 +50,34 @@ function charGen(charIndex){
         
         success: function (response) {
             console.log(response);
+            let aliasHint = response.results[0].biography.aliases
+                if (aliasHint === undefined){
+                    aliasHint = "None"
+                };            
+            let alignmentHint = response.results[0].biography.alignment
+                if (alignmentHint === undefined){
+                    alignmentHint = "None"
+                };
+            let altEgoHint = response.results[0].biography.alterego
+                if (altEgoHint === undefined){
+                    altEgoHint = "None"
+                };
+            let pubHint = response.results[0].biography.publisher
+                if (pubHint === undefined){
+                    pubHint = "None"
+                };
+
             $('.hints-box').empty();
            const hint = [
-               "Alias: " + response.results[0].biography.aliases,
-               "Alignment: " + response.results[0].biography.alignment,
-               "Alterego: " + response.results[0].biography.alterego,
+            //    "Alias: " + response.results[0].biography.aliases,
+               "Alias: " + aliasHint,
+            //    "Alignment: " + response.results[0].biography.alignment,
+               "Alignment: " + alignmentHint,
+            //    "Alterego: " + response.results[0].biography.alterego,
+               "Alterego: " + altEgoHint,
               // "Conections: " +  response.results[0].biography.connections.group-affiliation,
-               "Publisher: " + response.results[0].biography.publisher
+            //    "Publisher: " + response.results[0].biography.publisher
+               "Publisher: " + pubHint
                //response.results[0].biography.aliases
             ]
 
@@ -87,11 +108,12 @@ function charGen(charIndex){
     //fill buttons
     function fillBtn(){
 
-        for(let i = 1; i < 4; i++){
-            $('#' + i).text(charArr[Math.floor(Math.random() * 61-1)]);
-            console.log("Fill button " + charArr[Math.floor(Math.random() * 61-1)]);
-        }
+        // for(let i = 1; i < 4; i++){
+        //     $('#' + i).text(charArr[Math.floor(Math.random() * 61-1)]);
+        //     console.log("Fill button " + charArr[Math.floor(Math.random() * 61-1)]);
+        // }
     }
+
 
     //start the game   
     $('#start').click(function(){
