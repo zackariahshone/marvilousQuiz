@@ -64,18 +64,18 @@ function charGen(charIndex){
                 console.log('Hints: ' + hint[i]);
             }
             
-            const randImg = $('img');
-            $('.hero-box').append(randImg);
-            const imgUrl = response.results[0].image.url;
-            $('#answer').text(response.results[0].name)
+            // const randImg = $('img');
+            // $('.hero-box').append(randImg);
+            // const imgUrl = response.results[0].image.url;
+            // $('#answer').text(response.results[0].name)
            
-            const hero = randImg.attr('src', imgUrl );
+           // const hero = randImg.attr('src', imgUrl );
             
             hints = setInterval(() => {
                 
                 $(".hints-box").append("<p>"+ hint[h] +"</p>"); 
                 h++;
-                console.log('Hint Number ' + h);
+               // console.log('Hint Number ' + h);
                 if(h === 5){
                     h=0;
                     clearInterval(hints);
@@ -85,19 +85,13 @@ function charGen(charIndex){
     });
 }
     //fill buttons
-    function fillBtn(){
-
-        for(let i = 1; i < 4; i++){
-            $('#' + i).text(charArr[Math.floor(Math.random() * 61-1)]);
-            console.log("Fill button " + charArr[Math.floor(Math.random() * 61-1)]);
-        }
-    }
+  
 
     //start the game   
     $('#start').click(function(){
       
         timer();
-        $('.btnAns').show();
+        $('.buttons').show();
         fillBtn();
 
         $("#qNumber").text("HERO: 1/5");
@@ -107,8 +101,9 @@ function charGen(charIndex){
     });
     //set the number of question being displayed and switch char
     //
+    //
     let questionNum = 1;
-    $("#answer").click(function(){
+    $(".buttons").click(function(){
         $('.hints-box').empty();
         reset(theTime);
         reset(hints);
@@ -117,6 +112,7 @@ function charGen(charIndex){
         charGen(Math.floor(Math.random() * 61-1));
         questionNum++;
         $("#qNumber").text('HERO: ' + questionNum + "/5");
+       
         if(questionNum > 5){
             $('#final').show();
         }
