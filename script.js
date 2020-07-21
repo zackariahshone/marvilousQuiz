@@ -34,7 +34,7 @@ $(document).ready(function () {
   //////////////////////////////////////////////////////
    
 
-const randChar = Math.floor(Math.random() * 61-1)
+// const randChar = Math.floor(Math.random() * 61-1)
 let hints = 0;
 function charGen(charIndex){
     const queryTerm = charArr[charIndex];
@@ -97,7 +97,7 @@ function charGen(charIndex){
                 $(".hints-box").append("<p>"+ hint[h] +"</p>"); 
                 h++;
                 console.log('Hint Number ' + h);
-                if(h === 5){
+                if(h === 4){
                     h=0;
                     clearInterval(hints);
                 }
@@ -123,7 +123,8 @@ function charGen(charIndex){
         fillBtn();
 
         $("#qNumber").text("HERO: 1/5");
-        charGen(Math.floor(Math.random() * 61-1));
+        // charGen(Math.floor(Math.random() * 61-1));
+        
         $('#start').hide();
 
     });
@@ -136,7 +137,7 @@ function charGen(charIndex){
         reset(hints);
         timer();
         fillBtn();
-        charGen(Math.floor(Math.random() * 61-1));
+        // charGen(Math.floor(Math.random() * 61-1));
         questionNum++;
         $("#qNumber").text('HERO: ' + questionNum + "/5");
         if(questionNum > 5){
