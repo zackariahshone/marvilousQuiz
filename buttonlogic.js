@@ -55,7 +55,7 @@ function fillBtn(queryTerm) {
     }
 
     const APIKey = "134975468255420";
-const queryURL = "https://www.superheroapi.com/api.php/" + APIKey + "/search/" + queryTerm + "/image" 
+    const queryURL = "https://www.superheroapi.com/api.php/" + APIKey + "/search/" + queryTerm + "/image" 
 
 // $.ajax({
 //     url: queryURL,
