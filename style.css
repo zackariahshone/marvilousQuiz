@@ -54,9 +54,15 @@ button{
 }
 
 button:hover{
-    opacity: 0.5;
+    opacity: ;
 }
-
+#score{
+    border-radius: 25%;
+    border-style: solid;
+    border-color: black;
+    padding: 20px;
+    width: 25%;
+}
 @media only screen and (max-width: 850) {
     body{
         background-color:white;

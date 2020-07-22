@@ -36,13 +36,20 @@ $(document).ready(function () {
 
     // const randChar = Math.floor(Math.random() * 61-1)
     let hints = 0;
+    let userScore = localStorage.getItem("score");
+    console.log(userScore);
+    if ((userScore === null)) {
+        userScore = 0;
+    }
+    localStorage.setItem("score", userScore);
+    let scoreHolder = document.getElementById("score");
     function charGen() {
         const queryTerm = charArr[Math.floor(Math.random() * charArr.length)];
         // console.log('Char Index: ' +charIndex);
         console.log(queryTerm);
         const APIKey = "134975468255420";
         const queryURL = "https://www.superheroapi.com/api.php/" + APIKey + "/search/" + queryTerm + "/image"
-        let y = 0;
+        // let y = 0;
         $.ajax({
 
             url: queryURL,
@@ -145,7 +152,23 @@ $(document).ready(function () {
                         clearInterval(hints);
                     }
                 }, 1000 * 10);
+
+                $(".buttons").on("click", function(){
+                    ////Add giphy 
+                    const answer = (this).innerHTML;
+                    console.log(answer);
+                    console.log(queryTerm);
+                    if (answer === queryTerm){
+                        //window.open("win.html");
+                        // localStorage.getItem("score");
+                        userScore = parseInt(userScore) + 5;
+                        console.log(userScore);
+                        localStorage.setItem("score", userScore);
+                        scoreHolder.innerHTML = ("Score: " + userScore);
+                    } 
+                })
             }
+            
         });
     }
     //fill buttons
