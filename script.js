@@ -1,5 +1,5 @@
 
-$(document).ready(function () {
+
     $('button').hide();
     $('#start').show();
     $('#final').hide();
@@ -36,9 +36,9 @@ $(document).ready(function () {
 
 const randChar = Math.floor(Math.random() * 61-1)
 let hints = 0;
-function charGen(charIndex){
-    const queryTerm = charArr[charIndex];
-    console.log('Char Index: ' +charIndex);
+function displayHints(charIndex){
+    const queryTerm = charIndex;
+    console.log('Char Index: ' + charIndex);
     console.log(queryTerm);
     const APIKey = "134975468255420";
     const queryURL = "https://www.superheroapi.com/api.php/" + APIKey + "/search/" + queryTerm + "/image"
@@ -46,10 +46,9 @@ function charGen(charIndex){
     $.ajax({
         
         url: queryURL,
-        method: "GET",
-        
-        success: function (response) {
-            console.log(response);
+        method: "GET"
+    }).then(function (response) {
+            console.log("SHONE QUERY: " +response);
             $('.hints-box').empty();
            const hint = [
                "Alias: " + response.results[0].biography.aliases,
@@ -63,14 +62,7 @@ function charGen(charIndex){
             for(let i = 0; i < hint.length; i++){
                 console.log('Hints: ' + hint[i]);
             }
-            
-            // const randImg = $('img');
-            // $('.hero-box').append(randImg);
-            // const imgUrl = response.results[0].image.url;
-            // $('#answer').text(response.results[0].name)
-           
-           // const hero = randImg.attr('src', imgUrl );
-            
+             
             hints = setInterval(() => {
                 
                 $(".hints-box").append("<p>"+ hint[h] +"</p>"); 
@@ -81,21 +73,20 @@ function charGen(charIndex){
                     clearInterval(hints);
                 }
             }, 1000*10);
-        }
-    });
+        })
 }
     //fill buttons
   
 
     //start the game   
     $('#start').click(function(){
-      
+        
         timer();
         $('.buttons').show();
-        fillBtn();
+        ImgNbtn();
 
         $("#qNumber").text("HERO: 1/5");
-        charGen(Math.floor(Math.random() * 61-1));
+        displayHints(Math.floor(Math.random() * 61-1));
         $('#start').hide();
 
     });
@@ -108,11 +99,23 @@ function charGen(charIndex){
         reset(theTime);
         reset(hints);
         timer();
-        fillBtn();
-        charGen(Math.floor(Math.random() * 61-1));
+        ImgNbtn();
+        displayHints(Math.floor(Math.random() * 61-1));
         questionNum++;
         $("#qNumber").text('HERO: ' + questionNum + "/5");
        
+        const answer = (this).innerHTML;
+        console.log("THIS IS THE ANSWER " + answer);
+        console.log("THIS IS THE QUERY TERM: " +queryTerm);
+        if (answer === queryTerm){
+            alert('correct answer');
+            //window.open("win.html");
+            // localStorage.getItem("score");
+            userScore = parseInt(userScore) + 5;
+            console.log(userScore);
+            localStorage.setItem("score", userScore);
+        } 
+
         if(questionNum > 5){
             $('#final').show();
         }
@@ -122,7 +125,7 @@ function charGen(charIndex){
         $('.hints-box').empty();
     })
     
-});
+
 
 
 

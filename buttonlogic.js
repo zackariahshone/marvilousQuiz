@@ -1,4 +1,4 @@
-function fillBtn() {
+function ImgNbtn() {
 
     let queryTerm = ""
     let random1 = ""
@@ -34,7 +34,7 @@ function fillBtn() {
         }
         while (random3 === queryTerm || random3 === random1 || random3 === random2);
     }
-
+    
     //  console.log(queryTerm);
     //  console.log(random1);
     //  console.log(random2);
@@ -45,6 +45,7 @@ function fillBtn() {
     //         random3 variables are full! 
 
     const buttonArr = _.shuffle([queryTerm, random1, random2, random3]);
+    console.log('query term from Joe ' + queryTerm);
     console.log("button array " + buttonArr);
 
     for (let i = 0; i < buttonArr.length; i++) {
@@ -60,7 +61,8 @@ $.ajax({
     url: queryURL,
     method: "GET"
 }).then(function(returnData) {
-
+    console.log('Joe Data');
+    console.log(returnData);
     const charImgURL = (returnData.results[0].image.url);
     //console.log(charImgURL);
 
@@ -76,20 +78,23 @@ console.log(userScore);
 
 
 
- function scoreKeeper(){
-    ////Add giphy 
+$(".buttons").on("click", function(){
+//     reset(theTime);
+//    reset(hints);
+//     timer();
+//     ImgNbtn();
+//     displayHints();
     const answer = (this).innerHTML;
-    console.log(answer);
-    console.log(queryTerm);
+    console.log("THIS IS THE ANSWER " + answer);
+    console.log("THIS IS THE QUERY TERM: " +queryTerm);
     if (answer === queryTerm){
-
+        alert('correct answer');
         //window.open("win.html");
         // localStorage.getItem("score");
         userScore = parseInt(userScore) + 5;
         console.log(userScore);
         localStorage.setItem("score", userScore);
     } 
+})
 
-
-}
 }
