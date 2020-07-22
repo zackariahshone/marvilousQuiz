@@ -36,8 +36,6 @@ if ((userScore === null)){
 // console.log(userScore);
 localStorage.setItem("score", userScore);
 const scoreHolder = document.getElementById("score");
-
-
 queryTerm = charArr[Math.floor(Math.random() * charArr.length)]; 
 random1 = charArr[Math.floor(Math.random() * charArr.length)];
 if (random1 === queryTerm){
@@ -58,24 +56,22 @@ if (random3 === queryTerm || random3 === random1 || random3 === random2){
     while (random3 === queryTerm || random3 === random1 || random3 === random2);
 }
        
-     console.log(queryTerm);
-     console.log(random1);
-     console.log(random2);
-     console.log(random3);
-/////
+    //  console.log(queryTerm);
+    //  console.log(random1);
+    //  console.log(random2);
+    //  console.log(random3);
+// /////   queryTerm
+//         random1
+//         random2
+//         random3 variables are full! 
+
      const buttonArr = _.shuffle([queryTerm, random1, random2, random3]);
-     console.log(buttonArr);
+     console.log("button array " + buttonArr);
 
      for (let i = 0; i < buttonArr.length; i++){
          const buttonText = buttonArr[i];
-         console.log(buttonText);
-         const answerButton = document.createElement("li");
-         console.log(answerButton);
-         answerButton.className = ("btn");
-         answerButton.innerHTML = buttonText;
-         const buttonDiv = document.getElementById("buttons");
-         buttonDiv.append(answerButton);
-
+         console.log('button text ' +buttonText);
+         $('#'+i).text(buttonText);
      }
 
 
@@ -94,7 +90,7 @@ $.ajax({
     charImg.attr('src', charImgURL);
     imageDiv.append(charImg);
     $('#image-holder').prepend(charImg);
-
+    
 });  
 
 console.log(userScore);
