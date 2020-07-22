@@ -54,7 +54,7 @@ button{
 }
 
 button:hover{
-    opacity: ;
+    opacity: 0.5;
 }
 #score{
     border-radius: 25%;

@@ -16,7 +16,7 @@ const charArr = [
     "Bloodaxe", "Bloodhawk", "Bloodwraith", "Blue Beetle", 
     "Boba Fett", "Bolt", "Bomb Queen", "Boom-Boom", "Booster Gold", 
     "Box", "Brainiac", "Brother Voodoo", "Brundlefly", "Buffy", 
-    "Bullseye", "Bumblebee", "Bumbleboy","Bushido", "Cable", "Callisto", 
+    "Bullseye", "Bumblebee", "Bushido", "Cable", "Callisto", 
     "Cameron Hicks", "Cannonball", "Captain America", "Captain Atom", 
     "Captain Britain", "Captain Cold", "Captain Epic", "Captain Hindsight", 
     "Captain Mar-vell", "Captain Marvel", "Captain Planet", "Carnage", "Catwoman",

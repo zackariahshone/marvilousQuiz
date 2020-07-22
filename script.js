@@ -114,39 +114,24 @@ $(document).ready(function () {
                     console.log('button text ' + buttonText);
                     $('#' + i).text(buttonText);
                 }
-
-                // fillBtn();
-
+               
                 $('.hints-box').empty();
-                const hint = [
-                    //    "Alias: " + response.results[0].biography.aliases,
-                    "Alias: " + aliasHint,
-                    //    "Alignment: " + response.results[0].biography.alignment,
-                    "Alignment: " + alignmentHint,
-                    //    "Alterego: " + response.results[0].biography.alterego,
-                    "Alter Ego: " + altEgoHint,
-                    // "Conections: " +  response.results[0].biography.connections.group-affiliation,
-                    //    "Publisher: " + response.results[0].biography.publisher
-                    "Publisher: " + pubHint
-                    //response.results[0].biography.aliases
+                const hint = [                    
+                    "Alias: " + aliasHint,                    
+                    "Alignment: " + alignmentHint,                 
+                    "Alter Ego: " + altEgoHint,                 
+                    "Publisher: " + pubHint                 
                 ]
 
                 for (let i = 0; i < hint.length; i++) {
                     console.log('Hints: ' + hint[i]);
                 }
-
-                // const randImg = $('img');
-                // $('.hero-box').append(randImg);
-                // const imgUrl = response.results[0].image.url;
-                // $('#answer').text(response.results[0].name)
-
-                // const hero = randImg.attr('src', imgUrl );
-
+          
                 hints = setInterval(() => {
 
                     $(".hints-box").append("<p>" + hint[h] + "</p>");
                     h++;
-                    // console.log('Hint Number ' + h);
+                   
                     if (h === 4) {
                         h = 0;
                         clearInterval(hints);
@@ -158,9 +143,7 @@ $(document).ready(function () {
                     const answer = (this).innerHTML;
                     console.log(answer);
                     console.log(queryTerm);
-                    if (answer === queryTerm){
-                        //window.open("win.html");
-                        // localStorage.getItem("score");
+                    if (answer === queryTerm){                    
                         userScore = parseInt(userScore) + 5;
                         console.log(userScore);
                         localStorage.setItem("score", userScore);
@@ -171,18 +154,19 @@ $(document).ready(function () {
             
         });
     }
-    //fill buttons
-
 
     //start the game   
     $('#start').click(function () {
+
+        userScore = 0
+        localStorage.setItem("score", userScore);
 
         timer();
         $('.buttons').show();
         // fillBtn();
 
         $("#qNumber").text("HERO: 1/5");
-        // charGen(Math.floor(Math.random() * 61-1));
+        
         charGen();
         $('#start').hide();
 
@@ -204,6 +188,15 @@ $(document).ready(function () {
 
         if (questionNum > 5) {
             $('#final').show();
+            let finalScore = userScore;            
+            console.log(finalScore);
+            $('.hints-box').empty();
+            $('.timer').hide();
+            // $("#final").attr("href", "final.html");
+            // userScore = 0
+            // localStorage.setItem("score", userScore);
+
+
         }
     });
 
