@@ -1,8 +1,9 @@
 
 $(document).ready(function () {
-    $('button').hide();
+    // $('button').hide();
     $('#start').show();
     $('#final').hide();
+    $(".gif-box").hide();
    
    let x=0;
    let h=0;
@@ -64,12 +65,15 @@ function charGen(charIndex){
                 console.log('Hints: ' + hint[i]);
             }
             
-            const randImg = $('img');
-            $('.hero-box').append(randImg);
+            const randImg = $('#heroImage');
+            // $('.hero-box').append(randImg);
+            // Mohamed: there is no need to append dynamically, set attribute instead
+            
             const imgUrl = response.results[0].image.url;
             $('#answer').text(response.results[0].name)
            
-            const hero = randImg.attr('src', imgUrl );
+            // const hero = randImg.attr('src', imgUrl );
+            randImg.attr('src', imgUrl );
             
             hints = setInterval(() => {
                 
@@ -119,13 +123,40 @@ function charGen(charIndex){
     //     }
         
     // })
+    
     $("#answer").click(function(){
+        $(".gif-box").show();
+        correct();
+         //    setTimeout( charGen(Math.floor(Math.random() * 61-1)), 4000);
+    setTimeout(function() {
+        charGen(Math.floor(Math.random() * 61-1));
+    }, 3500)    ;
+        // charGen(Math.floor(Math.random() * 61-1));
         $('.hints-box').empty();
         reset(theTime);
         reset(hints);
         timer();
         fillBtn();
+        questionNum++;
+        $("#qNumber").text('HERO: ' + questionNum + "/5");
+        if(questionNum > 5){
+            $('#final').show();
+        }
+    });
+
+    $("#0,#1,#2").click(function(){
+        $(".gif-box").show();
+
+        incorrect();
+    //    setTimeout( charGen(Math.floor(Math.random() * 61-1)), 4000);
+    setTimeout(function() {
         charGen(Math.floor(Math.random() * 61-1));
+    }, 3500)    ;
+    $('.hints-box').empty();
+        reset(theTime);
+        reset(hints);
+        timer();
+        fillBtn();
         questionNum++;
         $("#qNumber").text('HERO: ' + questionNum + "/5");
         if(questionNum > 5){
