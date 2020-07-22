@@ -1,6 +1,6 @@
-function ImgNbtn() {
+function fillBtn(queryTerm) {
 
-    let queryTerm = ""
+    // let queryTerm = ""
     let random1 = ""
     let random2 = ""
     let random3 = ""
@@ -12,7 +12,7 @@ function ImgNbtn() {
     // console.log(userScore);
     localStorage.setItem("score", userScore);
     const scoreHolder = document.getElementById("score");
-    queryTerm = charArr[Math.floor(Math.random() * charArr.length)];
+    // queryTerm = charArr[Math.floor(Math.random() * charArr.length)];
     random1 = charArr[Math.floor(Math.random() * charArr.length)];
     if (random1 === queryTerm) {
         do {
@@ -57,22 +57,21 @@ function ImgNbtn() {
     const APIKey = "134975468255420";
 const queryURL = "https://www.superheroapi.com/api.php/" + APIKey + "/search/" + queryTerm + "/image" 
 
-$.ajax({
-    url: queryURL,
-    method: "GET"
-}).then(function(returnData) {
-    console.log('Joe Data');
-    console.log(returnData);
-    const charImgURL = (returnData.results[0].image.url);
-    //console.log(charImgURL);
+// $.ajax({
+//     url: queryURL,
+//     method: "GET"
+// }).then(function(returnData) {
 
-    const randImg = $('img');
-     $('.hero-box').append(randImg);
-     const imgUrl = returnData.results[0].image.url;
-     $('#answer').text(returnData.results[0].name)
-      const hero = randImg.attr('src', imgUrl );
+//     const charImgURL = (returnData.results[0].image.url);
+//     //console.log(charImgURL);
+
+//     const randImg = $('img');
+//      $('.hero-box').append(randImg);
+//      const imgUrl = returnData.results[0].image.url;
+//      $('#answer').text(returnData.results[0].name)
+//       const hero = randImg.attr('src', imgUrl );
       
-});  
+// });  
 
 console.log(userScore);
 

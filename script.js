@@ -34,11 +34,11 @@
   //////////////////////////////////////////////////////
    
 
-const randChar = Math.floor(Math.random() * 61-1)
+// const randChar = Math.floor(Math.random() * 61-1)
 let hints = 0;
-function displayHints(charIndex){
-    const queryTerm = charIndex;
-    console.log('Char Index: ' + charIndex);
+function charGen(){
+    const queryTerm = charArr[Math.floor(Math.random() * charArr.length)];
+    // console.log('Char Index: ' +charIndex);
     console.log(queryTerm);
     const APIKey = "134975468255420";
     const queryURL = "https://www.superheroapi.com/api.php/" + APIKey + "/search/" + queryTerm + "/image"
@@ -46,16 +46,81 @@ function displayHints(charIndex){
     $.ajax({
         
         url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-            console.log("SHONE QUERY: " +response);
+        method: "GET",
+        
+        success: function (response) {
+            console.log(response);
+            let aliasHint = response.results[0].biography.aliases
+                if (aliasHint === undefined) {
+                    aliasHint = "None"
+                };
+            let alignmentHint = response.results[0].biography.alignment
+                if (alignmentHint === undefined) {
+                    alignmentHint = "None"
+                };
+            let altEgoHint = response.results[0].biography.alterego
+                if (altEgoHint === undefined) {
+                    altEgoHint = "None"
+                };
+            let pubHint = response.results[0].biography.publisher
+                if (pubHint === undefined) {
+                    pubHint = "None"
+                };
+
+                let random1 = ""
+                let random2 = ""
+                let random3 = ""
+
+                        const randImg = $('img');
+                        $('.hero-box').append(randImg);
+                        const imgUrl = response.results[0].image.url;
+                        $('#answer').text(response.results[0].name)
+                        const hero = randImg.attr('src', imgUrl );
+
+                        random1 = charArr[Math.floor(Math.random() * charArr.length)];
+                        if (random1 === queryTerm) {
+                            do {
+                                random1 = charArr[Math.floor(Math.random() * charArr.length)];
+                            }
+                            while (random1 === queryTerm);
+                        }
+                        random2 = charArr[Math.floor(Math.random() * charArr.length)];
+                        if (random2 === queryTerm || random2 === random1) {
+                            do {
+                                random2 = charArr[Math.floor(Math.random() * charArr.length)];
+                            }
+                            while (random2 === queryTerm || random2 === random1);
+                        }
+                        random3 = charArr[Math.floor(Math.random() * charArr.length)];
+                        if (random3 === queryTerm || random3 === random1 || random3 === random2) {
+                            do {
+                                random3 = charArr[Math.floor(Math.random() * charArr.length)];
+                            }
+                            while (random3 === queryTerm || random3 === random1 || random3 === random2);
+                        }
+
+                        const buttonArr = _.shuffle([queryTerm, random1, random2, random3]);
+                        console.log("button array " + buttonArr);
+                    
+                        for (let i = 0; i < buttonArr.length; i++) {
+                            const buttonText = buttonArr[i];
+                            console.log('button text ' + buttonText);
+                            $('#' + i).text(buttonText);
+                        }
+
+                // fillBtn();
+                        
             $('.hints-box').empty();
            const hint = [
-               "Alias: " + response.results[0].biography.aliases,
-               "Alignment: " + response.results[0].biography.alignment,
-               "Alterego: " + response.results[0].biography.alterego,
-              // "Conections: " +  response.results[0].biography.connections.group-affiliation,
-               "Publisher: " + response.results[0].biography.publisher
+               //    "Alias: " + response.results[0].biography.aliases,
+               "Alias: " + aliasHint,
+               //    "Alignment: " + response.results[0].biography.alignment,
+               "Alignment: " + alignmentHint,
+               //    "Alterego: " + response.results[0].biography.alterego,
+               "Alter Ego: " + altEgoHint,
+               // "Conections: " +  response.results[0].biography.connections.group-affiliation,
+               //    "Publisher: " + response.results[0].biography.publisher
+               "Publisher: " + pubHint
                //response.results[0].biography.aliases
             ]
 
@@ -68,13 +133,13 @@ function displayHints(charIndex){
                 $(".hints-box").append("<p>"+ hint[h] +"</p>"); 
                 h++;
                // console.log('Hint Number ' + h);
-                if(h === 5){
+                if(h === 4){
                     h=0;
                     clearInterval(hints);
                 }
             }, 1000*10);
         })
-}
+    }
     //fill buttons
   
 
@@ -83,10 +148,18 @@ function displayHints(charIndex){
         
         timer();
         $('.buttons').show();
+
         ImgNbtn();
 
         $("#qNumber").text("HERO: 1/5");
         displayHints(Math.floor(Math.random() * 61-1));
+
+        // fillBtn();
+
+        $("#qNumber").text("HERO: 1/5");
+        // charGen(Math.floor(Math.random() * 61-1));
+        
+
         $('#start').hide();
 
     });
@@ -99,8 +172,19 @@ function displayHints(charIndex){
         reset(theTime);
         reset(hints);
         timer();
+
         ImgNbtn();
         displayHints(Math.floor(Math.random() * 61-1));
+
+
+        fillBtn();
+        // charGen(Math.floor(Math.random() * 61-1));
+
+        // fillBtn();
+        // charGen(Math.floor(Math.random() * 61-1));
+        charGen();
+ 
+ 
         questionNum++;
         $("#qNumber").text('HERO: ' + questionNum + "/5");
        
