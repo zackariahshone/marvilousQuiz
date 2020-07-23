@@ -2,6 +2,7 @@ $(document).ready(function () {
     
     $('.hid').hide();
     $('.container-button').hide();
+    $('.gif-box').hide();
     $('#start').show();
     $('#final').hide();
 

@@ -6,6 +6,11 @@ font-family: 'Shadows Into Light', cursive; */
 
 body{
     background-color: black;
+    margin: 0;
+    padding-top: 5%;
+}
+.container{
+    width: 80%;
 }
 #heading{
     font-size: 200px;
@@ -23,33 +28,33 @@ a {
     color: black;
     }
 .card{
-    width: 70%;
-    margin: auto;
-    margin-top: 5%;
+    width: 65%;
+    /* margin-left: 202px; */
+    /* margin-right: 400px; */
     border-radius: 50px;
     background-color: rgb(212, 47, 47);
     color: white;
 }
-.hero-row{
-    margin-bottom: -10%;
-    height: 30px;
-}
-.hero-box img{
+img{
     width: 100%;
-    
+    height: 200px;
+    border-radius: 50px;
+}
+.hero-box {
+    width: 100%;
+    height: 50%;
     background-color: black;
     border-radius: 50px;
 }
 .hints-box{
     width: 100%;
-    
     border-style: solid;
     border-color: black;
     border-radius: 50px;
     padding: 30px;
 }
 .gif-box{
-   width: 50%;
+   width: 100%;
     border-style: solid;
     border-color: black;
     border-radius: 50px;
