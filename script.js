@@ -187,11 +187,19 @@ $(document).ready(function () {
         $("#qNumber").text('HERO: ' + questionNum + "/5");
 
         if (questionNum > 5) {
-            $('#final').show();
-            let finalScore = userScore;            
-            console.log(finalScore);
-            $('.hints-box').empty();
-            $('.timer').hide();
+            // $('#final').show();
+            // console.log(finalScore);
+            // $('.hints-box').empty();
+            // $('.timer').hide();
+            window.open('FinalScore.html');
+            window.close('index.html');
+            // let finalScore = localStorage.getItem("score");  
+            // console.log(finalScore);          
+            // finalHolder = document.getElementById('finalScore');
+
+
+            // finalHolder.innerHTML = (finalScore);
+
             // $("#final").attr("href", "final.html");
             // userScore = 0
             // localStorage.setItem("score", userScore);
