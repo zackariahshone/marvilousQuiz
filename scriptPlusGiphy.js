@@ -32,10 +32,11 @@ $(document).ready(function () {
     function reset(timer) {
         clearInterval(timer);
     }
-    //////////////////////////////////////////////////////
-    //giphy code
-    const wrongAnswerIds = ["UX06yZ6erE0fQtU1Sd","3ohc1h1vy6Gtv4uOLC","l396QUa4k8rFVK2xW","xT39D14ZQGal0UwS1G","gjs7t0bCR1eX3Ta7Wp","3ohhwxCQmcq7dB6JBm","m8eIbBdkJK7Go","l4FGuhL4U2WyjdkaY","3o6vXR8idD7v8ulzFe","RkcYSKjRo0P5YX6qxb","qYYS2GC0sfPCU","26tk0H3LSMpdL1Wr6","3o6nV6G7ksnvEwXyBq","ZZqroMldngFEhKpJsh"]; 
+    //////////////////////////////////////////////////////giphy code
+
     function incorrect(){
+        const wrongAnswerIds = ["UX06yZ6erE0fQtU1Sd","3ohc1h1vy6Gtv4uOLC","l396QUa4k8rFVK2xW","xT39D14ZQGal0UwS1G","gjs7t0bCR1eX3Ta7Wp","3ohhwxCQmcq7dB6JBm","m8eIbBdkJK7Go","l4FGuhL4U2WyjdkaY","3o6vXR8idD7v8ulzFe","RkcYSKjRo0P5YX6qxb","qYYS2GC0sfPCU","26tk0H3LSMpdL1Wr6","3o6nV6G7ksnvEwXyBq","ZZqroMldngFEhKpJsh"]; 
+        $(".gif-box").show();
         $("#gif").show();
 const randomWrongID = wrongAnswerIds[Math.floor(Math.random() * wrongAnswerIds.length - 1)];
    
@@ -68,21 +69,24 @@ const randomWrongID = wrongAnswerIds[Math.floor(Math.random() * wrongAnswerIds.l
           answerImage.attr("src", imageUrl);
           answerImage.attr("alt", "answer image");
 
-          $(".gif-box").prepend(answerImage);
+        //   $(".gif-box").prepend(answerImage);
         
           function gifresponse(){
           setTimeout(function(){ 
-              $("#gif").hide(); }, 3000);
+              $("#gif").hide(); }, 3500);
             }
             gifresponse();
             
             
           });
-          // charGen(Math.floor(Math.random() * 61-1));
-      }
-      const correctAnswerIds = ["fvT2lZ7UFAvHpPjmVs","3o7abKhOpu0NwenH3O","s92f9UTsinNDy","fWj2TR9mfYJ56","l2YWykMPCmCb9lLWM","MEdXzJwmTvjpw79Gig","fqn15N41FAbyOTKFWq","hSoY24VXW8ZypOWy0J","TdEeOeLcg6Bj0eyfUl","gffcSKwGREETNo9rsy","fU4hSviMDRPKZTRHUx","dAEhmHqUM1IvJK4jxl","5jUxrY6ClTRUdT1SPE","WqMC58pzv1X6Je8La1"]; 
-      function correct(){
-          $("#gif").show();
+          setTimeout(function () {
+            // charGen();
+        }, 4000);
+    }
+    function correct(){
+        const correctAnswerIds = ["fvT2lZ7UFAvHpPjmVs","3o7abKhOpu0NwenH3O","s92f9UTsinNDy","fWj2TR9mfYJ56","l2YWykMPCmCb9lLWM","MEdXzJwmTvjpw79Gig","fqn15N41FAbyOTKFWq","hSoY24VXW8ZypOWy0J","TdEeOeLcg6Bj0eyfUl","gffcSKwGREETNo9rsy","fU4hSviMDRPKZTRHUx","dAEhmHqUM1IvJK4jxl","5jUxrY6ClTRUdT1SPE","WqMC58pzv1X6Je8La1"]; 
+        $(".gif-box").show();
+        $("#gif").show();
       const randomCorrectID = correctAnswerIds[Math.floor(Math.random() * correctAnswerIds.length - 1)];
       const queryURL2 = "https://api.giphy.com/v1/gifs/" + randomCorrectID +"?api_key=uezAuEzemGKTSD3HTEdz5ueXtRwzLNiL"
       
@@ -113,22 +117,23 @@ const randomWrongID = wrongAnswerIds[Math.floor(Math.random() * wrongAnswerIds.l
             answerImage.attr("src", imageUrl2);
             answerImage.attr("alt", "answer image");
   
-            $(".gif-box").prepend(answerImage);
-            // Prepending the catImage to the images div
+            // $(".gif-box").prepend(answerImage);
+            // 
            
             function gifresponse2(){
             setTimeout(function(){ 
-                $("#gif").hide(); }, 3000);
+                $("#gif").hide(); }, 3500);
               }
               
               gifresponse2();
               
+              
          
               });
-              
-              }
-
-
+              setTimeout(function () {
+                // charGen();
+            }, 4000);
+        } 
     // const randChar = Math.floor(Math.random() * 61-1)
     let hints = 0;
     let userScore = localStorage.getItem("score");
@@ -172,12 +177,14 @@ const randomWrongID = wrongAnswerIds[Math.floor(Math.random() * wrongAnswerIds.l
                 let random1 = ""
                 let random2 = ""
                 let random3 = ""
-
-                const randImg = $('img');
-                $('.hero-box').append(randImg);
+                const randImg = $('#heroImage');
                 const imgUrl = response.results[0].image.url;
-                $('#answer').text(response.results[0].name)
-                const hero = randImg.attr('src', imgUrl);
+                randImg.attr("src", imgUrl);
+                // const randImg = $('img');
+                // $('.hero-box').append(randImg);
+                // const imgUrl = response.results[0].image.url;
+                // $('#answer').text(response.results[0].name)
+                // const hero = randImg.attr('src', imgUrl);
 
                 random1 = charArr[Math.floor(Math.random() * charArr.length)];
                 if (random1 === queryTerm) {
@@ -244,7 +251,7 @@ const randomWrongID = wrongAnswerIds[Math.floor(Math.random() * wrongAnswerIds.l
                         localStorage.setItem("score", userScore);
                         scoreHolder.innerHTML = ("Score: " + userScore);
                         correct();
-                    } else{
+                     } else{
                         incorrect();
                     }
                 })
@@ -285,13 +292,19 @@ const randomWrongID = wrongAnswerIds[Math.floor(Math.random() * wrongAnswerIds.l
         $("#qNumber").text('HERO: ' + questionNum + "/5");
 
         if (questionNum > 5) {
-            $('#final').show();
-            let finalScore = userScore;            
-            console.log(finalScore);
-            $('.hints-box').hide();
-            $('.timer').hide();
-            $('#qNumber').empty();
-            
+            // $('#final').show();
+            // console.log(finalScore);
+            // $('.hints-box').empty();
+            // $('.timer').hide();
+            window.open('FinalScore.html');
+            window.close('index.html');
+            // let finalScore = localStorage.getItem("score");  
+            // console.log(finalScore);          
+            // finalHolder = document.getElementById('finalScore');
+
+
+            // finalHolder.innerHTML = (finalScore);
+
             // $("#final").attr("href", "final.html");
             // userScore = 0
             // localStorage.setItem("score", userScore);
