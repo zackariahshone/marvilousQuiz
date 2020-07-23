@@ -1,9 +1,9 @@
+
 $(document).ready(function () {
-    
-    $('.hid').hide();
-    $('.container-button').hide();
+    $('button').hide();
     $('#start').show();
     $('#final').hide();
+    $('.gif-box').hide();
 
     let x = 0;
     let h = 0;
@@ -33,9 +33,101 @@ $(document).ready(function () {
         clearInterval(timer);
     }
     //////////////////////////////////////////////////////
-    function shrinkHeading(){
-        $('#heading').css('font-size','70px')
-    }
+    //giphy code
+    const wrongAnswerIds = ["UX06yZ6erE0fQtU1Sd","3ohc1h1vy6Gtv4uOLC","l396QUa4k8rFVK2xW","xT39D14ZQGal0UwS1G","gjs7t0bCR1eX3Ta7Wp","3ohhwxCQmcq7dB6JBm","m8eIbBdkJK7Go","l4FGuhL4U2WyjdkaY","3o6vXR8idD7v8ulzFe","RkcYSKjRo0P5YX6qxb","qYYS2GC0sfPCU","26tk0H3LSMpdL1Wr6","3o6nV6G7ksnvEwXyBq","ZZqroMldngFEhKpJsh"]; 
+    function incorrect(){
+        $("#gif").show();
+const randomWrongID = wrongAnswerIds[Math.floor(Math.random() * wrongAnswerIds.length - 1)];
+   
+    const queryURL = "https://api.giphy.com/v1/gifs/" + randomWrongID +"?api_key=uezAuEzemGKTSD3HTEdz5ueXtRwzLNiL"
+    
+      // Perfoming an AJAX GET request to our queryURL
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+
+      // After the data from the AJAX request comes back
+        .then(function(response) {
+            console.log(response);
+
+        // Saving the image_original_url property
+          // const imageUrl = response.data[0].images.original.url;
+          //the above is how you get image url if you are using search
+        const imageUrl = response.data.images.original.url;
+        //the above is how you get image url if you are using id  
+        console.log(imageUrl);
+
+
+
+          // Creating and storing an image tag
+          const answerImage = $("#gif");
+          
+
+          
+          answerImage.attr("src", imageUrl);
+          answerImage.attr("alt", "answer image");
+
+          $(".gif-box").prepend(answerImage);
+        
+          function gifresponse(){
+          setTimeout(function(){ 
+              $("#gif").hide(); }, 3000);
+            }
+            gifresponse();
+            
+            
+          });
+          // charGen(Math.floor(Math.random() * 61-1));
+      }
+      const correctAnswerIds = ["fvT2lZ7UFAvHpPjmVs","3o7abKhOpu0NwenH3O","s92f9UTsinNDy","fWj2TR9mfYJ56","l2YWykMPCmCb9lLWM","MEdXzJwmTvjpw79Gig","fqn15N41FAbyOTKFWq","hSoY24VXW8ZypOWy0J","TdEeOeLcg6Bj0eyfUl","gffcSKwGREETNo9rsy","fU4hSviMDRPKZTRHUx","dAEhmHqUM1IvJK4jxl","5jUxrY6ClTRUdT1SPE","WqMC58pzv1X6Je8La1"]; 
+      function correct(){
+          $("#gif").show();
+      const randomCorrectID = correctAnswerIds[Math.floor(Math.random() * correctAnswerIds.length - 1)];
+      const queryURL2 = "https://api.giphy.com/v1/gifs/" + randomCorrectID +"?api_key=uezAuEzemGKTSD3HTEdz5ueXtRwzLNiL"
+      
+        // Perfoming an AJAX GET request to our queryURL
+        $.ajax({
+          url: queryURL2,
+          method: "GET"
+        })
+  
+        // After the data from the AJAX request comes back
+          .then(function(response) {
+              console.log(response);
+  
+          // Saving the image_original_url property
+            // const imageUrl = response.data[0].images.original.url;
+            //the above is how you get image url if you are using search
+          const imageUrl2 = response.data.images.original.url;
+          //the above is how you get image url if you are using id  
+          console.log(imageUrl2);
+  
+  
+  
+            // Creating and storing an image tag
+            const answerImage = $("#gif");
+            
+  
+            
+            answerImage.attr("src", imageUrl2);
+            answerImage.attr("alt", "answer image");
+  
+            $(".gif-box").prepend(answerImage);
+            // Prepending the catImage to the images div
+           
+            function gifresponse2(){
+            setTimeout(function(){ 
+                $("#gif").hide(); }, 3000);
+              }
+              
+              gifresponse2();
+              
+         
+              });
+              
+              }
+
 
     // const randChar = Math.floor(Math.random() * 61-1)
     let hints = 0;
@@ -60,26 +152,26 @@ $(document).ready(function () {
 
             success: function (response) {
                 console.log(response);
-                let aliasHint = response.results[0].biography.aliases;
+                let aliasHint = response.results[0].biography.aliases
                 if (aliasHint === undefined) {
                     aliasHint = "None"
                 };
-                let alignmentHint = response.results[0].biography.alignment;
+                let alignmentHint = response.results[0].biography.alignment
                 if (alignmentHint === undefined) {
                     alignmentHint = "None"
                 };
-                let altEgoHint = response.results[0].biography.alterego;
+                let altEgoHint = response.results[0].biography.alterego
                 if (altEgoHint === undefined) {
                     altEgoHint = "None"
                 };
-                let pubHint = response.results[0].biography.publisher;
+                let pubHint = response.results[0].biography.publisher
                 if (pubHint === undefined) {
                     pubHint = "None"
                 };
 
-                let random1 = "";
-                let random2 = "";
-                let random3 = "";
+                let random1 = ""
+                let random2 = ""
+                let random3 = ""
 
                 const randImg = $('img');
                 $('.hero-box').append(randImg);
@@ -151,7 +243,10 @@ $(document).ready(function () {
                         console.log(userScore);
                         localStorage.setItem("score", userScore);
                         scoreHolder.innerHTML = ("Score: " + userScore);
-                    } 
+                        correct();
+                    } else{
+                        incorrect();
+                    }
                 })
             }
             
@@ -160,16 +255,14 @@ $(document).ready(function () {
 
     //start the game   
     $('#start').click(function () {
-        shrinkHeading();
-        $('.hid').show();
+
         userScore = 0
         localStorage.setItem("score", userScore);
 
         timer();
-        $('.container-button').show();
-        $("#qNumber").text("HERO: 1/5");
-       // displayHints(Math.floor(Math.random() * 61-1));
+        $('.buttons').show();
         // fillBtn();
+
         $("#qNumber").text("HERO: 1/5");
         
         charGen();
@@ -187,25 +280,18 @@ $(document).ready(function () {
         timer();
         // fillBtn();
         // charGen(Math.floor(Math.random() * 61-1));
-
         charGen();
         questionNum++;
         $("#qNumber").text('HERO: ' + questionNum + "/5");
 
         if (questionNum > 5) {
-            // $('#final').show();
-            // console.log(finalScore);
-            // $('.hints-box').empty();
-            // $('.timer').hide();
-            window.open('FinalScore.html');
-            window.close('index.html');
-            // let finalScore = localStorage.getItem("score");  
-            // console.log(finalScore);          
-            // finalHolder = document.getElementById('finalScore');
-
-
-            // finalHolder.innerHTML = (finalScore);
-
+            $('#final').show();
+            let finalScore = userScore;            
+            console.log(finalScore);
+            $('.hints-box').hide();
+            $('.timer').hide();
+            $('#qNumber').empty();
+            
             // $("#final").attr("href", "final.html");
             // userScore = 0
             // localStorage.setItem("score", userScore);

@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Permanent+Marker&family=Press+Start+2P&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.10.2/underscore-min.js"></script>
@@ -16,44 +15,37 @@
 <div id="image-holder"></div>
 
 <body>
-    
     <div class="conatainer">
 
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <h1 id="heading">WHO DIS?</h1>
-                        <div class="col">
-                          
-                        </div>
-                        <div class="col col-sm-12 offset-4 hid">
-                            <h1 >Hints:</h1>
-                        </div>
+                        <h1>WHO DIS?</h1>
+                        <button id="start">Start</button>
                     </div>
                 </div>
-                <div class="row .hero-row">
-                    <div class="col hero-box">
-                        <div><img></div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="hero-box"><img id="heroImage"></div>
                     </div>
-                    <div class="gif-box hid">
 
+                    <div class="col" id="gifDiv">
+                        <div class="gif-box">
+                            <img id="gif">
+                        </div>
                     </div>
+
                     <div class="col">
-                        <div class="hints-box hid">
+                        <h1>Hints:</h1>
+                        <div class="hints-box">
 
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 offset-2">
-                        <button id="start">Start the game</button>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col hid">
-                        <h1 id="qNumber">HERO: **/**</h1>
+                    <div class="col">
+                        <h3 id="qNumber">HERO: **/**</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -66,19 +58,18 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    
-                                    <button class='buttons' id='0'></button>
+                                    <button class='buttons' id='0'> the target button</button>
                                 </div>
                                 <div class="col">
-                                    <button class='buttons' id='1'></button>
+                                    <button class='buttons' id='1'> clear </button>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <button class='buttons' id='2'></button>
+                                    <button class='buttons' id='2'> dumny button</button>
                                 </div>
                                 <div class="col">
-                                    <button class='buttons' id='3'></button>
+                                    <button class='buttons' id='3'> dumby button</button>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +77,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-10 hid">
+                    <div class="col-10">
                         <div id="score">
                             <p>Score: </p>
                         </div> 
@@ -96,7 +87,7 @@
                         </div>                        
                     </div>
                     <div class="col">
-                        <button id='final'><a href="FinalScore.html">FINAL/CONTINUE</a></button>
+                        <button id='final'><a href="final.html">FINAL/CONTINUE</a></button>
                     </div>
                 </div>
 
@@ -108,7 +99,6 @@
     <script src="data.js"></script>
     <!-- <script src="buttonlogic.js"></script> -->
     <script src="script.js"></script>
-   
 
 
 

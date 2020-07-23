@@ -16,11 +16,11 @@ const charArr = [
     "Bloodaxe", "Bloodhawk", "Bloodwraith", "Blue Beetle", 
     "Boba Fett", "Bolt", "Bomb Queen", "Boom-Boom", "Booster Gold", 
     "Box", "Brainiac", "Brother Voodoo", "Brundlefly", "Buffy", 
-    "Bullseye", "Bumblebee", "Bumbleboy","Bushido", "Cable", "Callisto", 
+    "Bullseye", "Bumblebee", "Bushido", "Cable", "Callisto", 
     "Cameron Hicks", "Cannonball", "Captain America", "Captain Atom", 
     "Captain Britain", "Captain Cold", "Captain Epic", "Captain Hindsight", 
     "Captain Mar-vell", "Captain Marvel", "Captain Planet", "Carnage", "Catwoman",
-    "Century", "Chameleon", "Changeling", "Cheetah", "Colossal Boy", "Colossus", "Copycat", "Corsair", "Cottonmouth", "Crimson Crusader", "Crimson Dynamo", "Cyborg", "Cyclops", "Cypher", "Daredevil", "Darkman", "Darkseid","Darth Maul", "Darth Vader", "Dazzler", 
+    "Century", "Chameleon", "Changeling", "Cheetah", "Colossus", "Copycat", "Corsair", "Cottonmouth", "Crimson Crusader", "Crimson Dynamo", "Cyborg", "Cyclops", "Cypher", "Daredevil", "Darkman", "Darkseid","Darth Maul", "Darth Vader", "Dazzler", 
     "Deadman", "Deadpool", "Deadshot", "Deathlok", "Deathstroke", "Diamondback", "Doctor Doom", "Doctor Fate", "Doctor Octopus", "Doctor Strange", "Domino", "Donatello", "Doomsday",
     "Doppelganger", "Dormammu", "Drax the Destroyer", "Electro", "Elektra", "Emma Frost", "Enchantress", "Ethan Hunt", "Exodus", "Falcon", "Fin Fang Foom", "Firestar", "Firestorm", "Flash", "Flash Gordon", "Franklin Richards", "Franklin Storm","Galactus", "Gambit",
     "Gamora", "General Zod", "Ghost Rider", "Giant-Man", "Gladiator", "Godzilla", "Goku", "Greedo", "Green Arrow", "Green Goblin", "Groot", "Hal Jordan", "Han Solo"]
