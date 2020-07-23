@@ -1,7 +1,7 @@
 $(document).ready(function () {
     
-
-    $('button').hide();
+    
+    $('.container-button').hide();
     $('#start').show();
     $('#final').hide();
 
@@ -153,7 +153,7 @@ $(document).ready(function () {
     //start the game   
     $('#start').click(function () {
         timer();
-        $('.buttons').show();
+        $('.container-button').show();
         $("#qNumber").text("HERO: 1/5");
        // displayHints(Math.floor(Math.random() * 61-1));
         // fillBtn();
