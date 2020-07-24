@@ -1,5 +1,7 @@
-# marvilousQuiz
+Project Title: Who Dis? Comics Edition 
+Project Description: This is a game app that asks user to identify random comic book character and presents them with a humorous gif letting them know if the answer is right or wrong.
+This was built using the Giphy and Superheroapi.com APIs and utilized the underscore.js library.
 
-Project Title: Who Dis? Comics Edition
-Project Description: This is a game app that asks user to identify random Marvel character and presents them with a video of that character if they answer the question right. Otherwise it will present them with a video trolling them.
-
+https://developers.giphy.com/
+https://superheroapi.com/index.html
+https://underscorejs.org/
