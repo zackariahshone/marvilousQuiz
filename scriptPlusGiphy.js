@@ -298,7 +298,9 @@ const randomWrongID = wrongAnswerIds[Math.floor(Math.random() * wrongAnswerIds.l
             // $('.hints-box').empty();
             // $('.timer').hide();
             window.open('FinalScore.html');
-            window.close('index.html');
+            window.close("https://zackariahshone.github.io/marvilousQuiz/index.html");
+            
+           
             // let finalScore = localStorage.getItem("score");  
             // console.log(finalScore);          
             // finalHolder = document.getElementById('finalScore');
