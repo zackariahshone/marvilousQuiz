@@ -8,7 +8,9 @@ font-family: 'Shadows Into Light', cursive; */
     border-radius: 50px;
     border-style: none; 
 }
-
+#heading{
+    font-size: 100px;
+}
 #gif {
     width: 300px;
     height: 300px;
@@ -52,6 +54,14 @@ a {
     border-color: black;
     border-radius: 50px;
     padding: 30px;
+}
+
+#start{
+    width: 50%;
+    height: 50%;
+    font-size: 40px;
+    border-radius: 50%;
+    font-family: 'Press Start 2P', cursive;
 }
 .timer{
     border-radius: 25%;

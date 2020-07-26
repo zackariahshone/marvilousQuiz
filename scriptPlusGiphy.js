@@ -34,7 +34,9 @@ $(document).ready(function () {
         clearInterval(timer);
     }
     //////////////////////////////////////////////////////giphy code
-
+    function shrinkHeading(){
+        $('#heading').css('font-size', '30px');
+    }
     function incorrect(){
         const wrongAnswerIds = ["UX06yZ6erE0fQtU1Sd","3ohc1h1vy6Gtv4uOLC","l396QUa4k8rFVK2xW","xT39D14ZQGal0UwS1G","gjs7t0bCR1eX3Ta7Wp","3ohhwxCQmcq7dB6JBm","m8eIbBdkJK7Go","l4FGuhL4U2WyjdkaY","3o6vXR8idD7v8ulzFe","RkcYSKjRo0P5YX6qxb","qYYS2GC0sfPCU","26tk0H3LSMpdL1Wr6","3o6nV6G7ksnvEwXyBq","ZZqroMldngFEhKpJsh"]; 
         $(".gif-box").show();
@@ -263,6 +265,7 @@ const randomWrongID = wrongAnswerIds[Math.floor(Math.random() * wrongAnswerIds.l
 
     //start the game   
     $('#start').click(function () {
+        shrinkHeading();
         $('.hid').show();
         userScore = 0
         localStorage.setItem("score", userScore);
